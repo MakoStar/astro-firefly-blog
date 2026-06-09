@@ -46,6 +46,7 @@ export type SiteConfig = {
 	// 提醒框配置
 	rehypeCallouts: {
 		theme: "github" | "obsidian" | "vitepress";
+		enableAdmonition?: boolean;
 	};
 
 	// bangumi配置
