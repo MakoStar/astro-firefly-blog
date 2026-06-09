@@ -4,7 +4,8 @@ on:
   # 每次推送到 `master` 分支时触发这个"工作流程"
   # 如果你使用了别的分支名，请按需将 `master` 替换成你的分支名
   push:
-    branches: [ master ]
+    # branches: [ master ]
+    branches: [ my-blog ]
   # 允许你在 GitHub 上的 Actions 标签中手动触发此"工作流程"
   workflow_dispatch:
 
@@ -42,6 +43,9 @@ jobs:
       - name: Deploy to pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: pages # 部署到pages分支
+          # branch: pages # 部署到pages分支
+          token: ${{ secrets.GH_PAT }}
+          repository-name: MakoStar/makostar.github.io
+          branch: main # 部署到 main 分支
           folder: dist # Astro默认构建输出目录
           clean: true # 清理目标分支中的旧文件
